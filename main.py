@@ -28,6 +28,7 @@ class MensagemRequest(BaseModel):
     mensagem: str
     idMensagem: str
     numeroDoContato: str
+    phone_number_id: str
 
     
 class AudioRequest(BaseModel):
@@ -95,7 +96,8 @@ def send_message(data: MensagemRequest):
         response = send_mensagem(
             data.mensagem,
             data.idMensagem,
-            data.numeroDoContato
+            data.numeroDoContato,
+            data.phone_number_id
         )
 
         if response.status_code >= 400:

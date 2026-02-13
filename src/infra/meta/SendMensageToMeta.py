@@ -49,9 +49,9 @@ class AudioRequest(BaseModel):
 # =========================
 
 
-def send_mensagem(mensagem: str, id_mensagem: str, numero_contato: str):
+def send_mensagem(mensagem: str, id_mensagem: str, numero_contato: str, phone_number_id: str):
 
-    url_meta = f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages"
+    url_meta = f"https://graph.facebook.com/v22.0/{phone_number_id}/messages"
 
     headers = {
         "Content-Type": "application/json",

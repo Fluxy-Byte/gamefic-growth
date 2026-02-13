@@ -14,13 +14,14 @@ if not TOKEN_META:
 if not PHONE_NUMBER_ID:
     raise Exception("PHONE_NUMBER_ID não definido no .env")
 
-
 logger = logging.getLogger(__name__)
 
 
-def send_campaing(payload: dict):
+def send_campaing(data: dict):
+    payload = data.get("payload")
+    phone_number_id = data.get("phone_number_id")
 
-    url_meta = f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages"
+    url_meta = f"https://graph.facebook.com/v22.0/{phone_number_id}/messages"
 
     headers = {
         "Content-Type": "application/json",
